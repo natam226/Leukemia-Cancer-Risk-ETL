@@ -1,4 +1,45 @@
-# Leukemia-Cancer-Risk - ETL Project
+# Health Data Analytics | ETL, Quality & Power BI
+
+**An academic workflow for preparing, validating and exploring a public health dataset.**
+
+Collaborative project using a Kaggle dataset containing **143,194 records across 22 countries**. The workflow connects data integration, dimensional storage, quality checks and reporting, with a Kafka streaming demonstration.
+
+**[Explore the analysis](notebooks/)** · [Review the Airflow DAG](airflow/dags/dag_etl.py) · [View dashboard files](dashboard/) · [Review transformations and tests](tests/)
+
+## Analytical questions
+
+- How are the dataset's variables distributed across countries and demographic groups?
+- Which schema, missing-value and range checks are needed before reporting?
+- How can a repeatable data pipeline support consistent analytical views?
+
+## Data flow
+
+~~~mermaid
+flowchart LR
+    A[Public dataset and API] --> B[Airflow ETL]
+    B --> C[Quality checks]
+    C --> D[PostgreSQL dimensional model]
+    D --> E[Power BI reporting]
+    D --> F[Kafka streaming demonstration]
+~~~
+
+## What this project demonstrates
+
+| Area | Implementation |
+| --- | --- |
+| Data preparation | Python transformations and enrichment from an external API |
+| Orchestration | Apache Airflow tasks and dependencies |
+| Data quality | Great Expectations checks for schema, null values, ranges and distributions |
+| Storage and reporting | PostgreSQL analytical model and Power BI dashboards |
+| Streaming | Kafka producer/consumer workflow and a Streamlit view |
+
+**Stack:** Python · SQL · PostgreSQL · Airflow · Great Expectations · Kafka · Power BI · Streamlit.
+
+The records belong to the public learning dataset; they do not represent patients managed by the project team. The analysis is descriptive and educational. Streaming demonstrates the software flow using the dataset, rather than a live clinical integration.
+
+---
+
+## Team and implementation guide
 
 **Realized by**
 * [Valentina Bueno Collazos](https://github.com/valentinabc19)
@@ -76,7 +117,8 @@ Leukemia-Cancer-Risk-ETL/
 Execute the following command to clone the repository
 
 ```bash
-git clone https://github.com/valentinabc19/Leukemia-Cancer-Risk-ETL.git
+git clone https://github.com/natam226/Leukemia-Cancer-Risk-ETL.git
+cd Leukemia-Cancer-Risk-ETL
 
 ```
 > From this point on all processes are done in Visual Studio Code
